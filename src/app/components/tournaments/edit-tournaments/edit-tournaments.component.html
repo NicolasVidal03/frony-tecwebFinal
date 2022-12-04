@@ -1,0 +1,27 @@
+
+<div class="principal">
+  <form (submit)="submitTournament()">
+    <div>
+      <span>Ingrese el nombre del torneo: </span>
+      <input type="text" name="titulo" placeholder="Titulo" [(ngModel)]="tournament.nombreTour">
+    </div>
+    <div>
+      <span>Ingrese el premio: </span>
+      <input type="number" name="lanzamiento" placeholder="Año de Lanzamiento" [(ngModel)]="tournament.premio" >
+    </div>
+    <div>
+      <span>Ingrese la localidad: </span>
+      <input type="text" name="genero" placeholder="Genero" [(ngModel)]="tournament.localidad">
+    </div>
+    <div>
+      <span>Ingrese la fecha de inicio: </span>
+      <input type="number" name="calificacion" placeholder="Calificacion" [(ngModel)]="tournament.fecha">
+    </div>
+    <div>
+      <span>Ingrese la fecha de final: </span>
+      <input type="number" name="calificacion" placeholder="Calificacion" [(ngModel)]="tournament.fechaFin">
+    </div>
+
+    <button type="submit">Guardar Cambios</button>
+  </form>
+</div>

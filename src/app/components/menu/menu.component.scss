@@ -1,0 +1,38 @@
+a{
+  color: white;
+  font-size: large;
+  font-style: normal;
+}
+#Nombre{
+  font-size: xx-large;
+  color: black;
+}
+
+nav{
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+div{
+  background-color: rgba(100, 100, 100, 1);
+  background: linear-gradient(180deg, rgb(38, 34, 33) 0%, rgb(33, 22, 20) 35%, rgb(21, 11, 10) 100%);
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 0 0;
+  padding: 2rem 1rem 2rem 1rem;
+
+}
+input{
+  width: 40vw;
+  height: 30px;
+  border-radius: 10px;
+  padding: 0 0 0 10px;
+}
+button{
+  height: 30px;
+  border-radius: 10px;
+}
+button:hover{
+  background-color: wheat;
+  transform: scale(1.1);
+}
+

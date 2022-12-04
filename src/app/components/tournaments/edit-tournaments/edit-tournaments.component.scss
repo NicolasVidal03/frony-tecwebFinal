@@ -1,0 +1,40 @@
+.principal{
+  display: flex;
+  flex-direction: column;
+  font-size: x-large;
+  padding: 6rem 2rem 2rem 2rem;
+  height: 100vh;
+  background-color: rgba(101, 20, 10, 0.42);
+  align-items: center;
+}
+.principal div{
+  padding-top: 1rem;
+}
+
+.principal div span{
+  width: 100rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.principal div input{
+  width: 20rem;
+  margin-left: 3rem;
+  height: 1.7rem;
+  border-radius: 10px;
+  padding-left: 1rem;
+  border: solid rgba(0, 0, 0, 0);
+}
+button{
+  height: 2rem;
+  width: 10rem;
+  border-radius: 15px;
+  margin-top: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-color: #e4e4f8;
+}
+button:hover{
+  background-color: #bbbbf6;
+  transform: scale(1.2);
+}

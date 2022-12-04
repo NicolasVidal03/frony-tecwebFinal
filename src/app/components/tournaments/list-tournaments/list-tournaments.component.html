@@ -1,0 +1,16 @@
+<a class="nav-link route"  routerLink="/tournament/agregar">Agregar torneo</a>
+<div class="contenedor">
+
+  <div class="juego" *ngFor="let tournament of tournaments">
+    <h1>{{tournament.nombreTour}}</h1>
+<!--    <h2>{{tournaments.game.titulo}}</h2>-->
+    <h2>Localidad: {{tournament.localidad}}</h2>
+    <h3>Premio: {{tournament.premio}}</h3>
+    <h4>Fecha Inicio: {{tournament.fecha}}</h4>
+    <h4>Fecha Fin: {{tournament.fechaFin}}</h4>
+    <div class="botones">
+      <button class="bt1" type="button" (click)="deleteTournament(tournament.id)">Eliminar</button>
+      <button class="bt2" type="button" [routerLink]="['/tournament/editar/', tournament.id]">Editar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<a class="nav-link route"  routerLink="/game/agregar">Agregar juego</a>
+<div class="contenedor">
+  <div class="juego" *ngFor="let game of games">
+    <h1>{{game.titulo}}</h1>
+    <h3>Año de Lanzamiento: {{game.lanzamiento}}</h3>
+    <h4>Genero: {{game.genero}}</h4>
+    <h4>Calificacion: {{game.calificacion}}</h4>
+    <h6 *ngFor="let player of game.players">{{player.nombre}}</h6>
+    <div class="botones">
+      <button class="bt1" type="button" (click)="deleteGame(game.id)">Eliminar</button>
+      <button class="bt2" type="button" [routerLink]="['/game/editar/', game.id]">Editar</button>
+      <button class="bt2" type="button" [routerLink]="['/player']">Mostrar Jugadores</button>
+    </div>
+  </div>
+</div>
+
