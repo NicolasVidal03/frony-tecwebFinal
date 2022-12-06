@@ -3,6 +3,7 @@ import {Tournament} from "../../../interfaces/tournament.interface";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GameService} from "../../../services/game.service";
 import {TournamentService} from "../../../services/tournament.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-tournaments',
@@ -10,27 +11,38 @@ import {TournamentService} from "../../../services/tournament.service";
   styleUrls: ['./edit-tournaments.component.scss']
 })
 export class EditTournamentsComponent implements OnInit{
-  tournament: Tournament={
-    nombreTour: "",
-    premio: 0,
-    localidad: "",
-    fecha: 0,
-    fechaFin: 0
-  };
+  myForm: FormGroup;
+  tournament: any= {}
+  id: any = 0;
+
   constructor(private route: ActivatedRoute, private  tournamentService: TournamentService, private router: Router) {
+    this.myForm = new FormGroup({
+      nombreTour: new FormControl('', Validators.required),
+      premio: new FormControl(''),
+      localidad: new FormControl(''),
+      fecha: new FormControl(''),
+      fechaFin: new FormControl('')
+    })
   }
 
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get("id");
+    this.getTournament();
   }
 
   getTournament() {
-    const id = String(this.route.snapshot.paramMap.get('id'));
-    this.tournamentService.getOneTournament(id).subscribe(dato=>this.tournament=dato);
+    this.tournamentService.getOneTournament(this.id).subscribe(response=>{
+      console.log("get tournament", response)
+      this.tournament = response
+    });
   }
 
-  submitTournament(){
-    this.tournamentService.update(String(this.tournament.id), this.tournament).subscribe(res=>{console.log(res); this.router.navigate(['/tournament'])}, err=>console.log(err));
+  submitTournament() {
+    console.log(this.myForm.value)
+    this.tournamentService.update(this.id, this.myForm.value).subscribe(response => {
+      this.router.navigate(['/tournament'])
+    })
   }
 
 }

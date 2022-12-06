@@ -3,8 +3,9 @@
 
   <div class="juego" *ngFor="let tournament of tournaments">
     <h1>{{tournament.nombreTour}}</h1>
+    <h2>Torneo de {{tournament.game.titulo}}</h2>
 <!--    <h2>{{tournaments.game.titulo}}</h2>-->
-    <h2>Localidad: {{tournament.localidad}}</h2>
+    <h3>Localidad: {{tournament.localidad}}</h3>
     <h3>Premio: {{tournament.premio}}</h3>
     <h4>Fecha Inicio: {{tournament.fecha}}</h4>
     <h4>Fecha Fin: {{tournament.fechaFin}}</h4>

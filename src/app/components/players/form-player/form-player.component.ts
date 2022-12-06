@@ -3,6 +3,7 @@ import {PlayerService} from "../../../services/player.service";
 import {Player} from "../../../interfaces/player.interface";
 import {Game} from "../../../interfaces/game.interface";
 import {GameService} from "../../../services/game.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-player',
@@ -16,17 +17,17 @@ export class FormPlayerComponent implements OnInit{
     sueldo: 0
   };*/
   player: any={};
-  games: any=[];
+  //games: any=[];
 
-  constructor(private playerService: PlayerService, private gameService: GameService) {
+  constructor(private playerService: PlayerService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.gameService.getGames().subscribe(datos=>this.games=datos);
+    //this.gameService.getGames().subscribe(datos=>this.games=datos);
   }
 
 
   agregarPlayer() {
-    return this.playerService.addPlayer(this.player).subscribe(res=>{console.log(res)}, err=>console.log(err))
+    return this.playerService.addPlayer(this.player).subscribe(res=>{console.log(res); this.router.navigate(['/player'])}, err=>console.log(err))
   }
 }

@@ -1,20 +1,20 @@
 <div class="principal">
-  <form (submit)="submitGame()">
+  <form [formGroup]="myForm" (submit)="submitGame()">
     <div>
       <span>Ingrese el titulo del juego: </span>
-      <input type="text" name="titulo" placeholder="Titulo" [(ngModel)]="game.titulo">
+      <input type="text" formControlName="titulo" placeholder="Titulo" [(ngModel)]="game.titulo">
     </div>
     <div>
       <span>Ingrese el año de lanzamiento: </span>
-      <input type="number" name="lanzamiento" placeholder="Año de Lanzamiento" [(ngModel)]="game.lanzamiento" >
+      <input type="number" formControlName="lanzamiento" placeholder="Año de Lanzamiento" [(ngModel)]="game.lanzamiento" >
     </div>
     <div>
       <span>Ingrese el genero del juego: </span>
-      <input type="text" name="genero" placeholder="Genero" [(ngModel)]="game.genero">
+      <input type="text" formControlName="genero" placeholder="Genero" [(ngModel)]="game.genero">
     </div>
     <div>
       <span>Ingrese la calificacion del juego: </span>
-      <input type="number" name="calificacion" placeholder="Calificacion" [(ngModel)]="game.calificacion">
+      <input type="number" formControlName="calificacion" placeholder="Calificacion" [(ngModel)]="game.calificacion">
     </div>
     <button type="submit">Guardar Cambios</button>
   </form>

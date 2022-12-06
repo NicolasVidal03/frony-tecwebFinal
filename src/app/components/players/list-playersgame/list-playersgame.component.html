@@ -1,0 +1,12 @@
+
+<div class="contenedor">
+  <div class="juego" *ngFor="let player of game.players">
+    <h1>{{player.nombre}}</h1>
+    <h2>Edad: {{player.edad}}</h2>
+    <h4>Sueldo: {{player.sueldo}}</h4>
+    <div class="botones">
+      <button class="bt2" type="button" [routerLink]="['/player/editar/', player.id]">Editar</button>
+<!--      <button class="bt1" type="button" (click)="deletePlayer(player.id)">Eliminar</button>-->
+    </div>
+  </div>
+</div>

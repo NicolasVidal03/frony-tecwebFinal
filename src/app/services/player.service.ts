@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Game} from "../interfaces/game.interface";
 import {Player} from "../interfaces/player.interface";
+import {FormGroup} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,8 @@ export class PlayerService {
     return this.http.delete(`server/players/${id}`);
   }
 
-  update(id: string, player: Player): Observable<any> {
-    return this.http.patch(`server/players/${id}`, player);
+  update(id: string, myForm: FormGroup): Observable<any> {
+    return this.http.patch(`server/players/${id}`, myForm);
   }
 
   addPlayer(player: Player): Observable<any> {

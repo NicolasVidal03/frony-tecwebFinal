@@ -1,25 +1,26 @@
 
 <div class="principal">
-  <form (submit)="submitTournament()">
+  <h1>Torneo del Juego:  {{tournament.game.titulo}}</h1>
+  <form [formGroup]="myForm" (submit)="submitTournament()">
     <div>
       <span>Ingrese el nombre del torneo: </span>
-      <input type="text" name="titulo" placeholder="Titulo" [(ngModel)]="tournament.nombreTour">
+      <input type="text" formControlName="nombreTour" placeholder="Nombre del torneo" [(ngModel)]="tournament.nombreTour">
     </div>
     <div>
       <span>Ingrese el premio: </span>
-      <input type="number" name="lanzamiento" placeholder="Año de Lanzamiento" [(ngModel)]="tournament.premio" >
+      <input type="number" formControlName="premio" placeholder="Premio" [(ngModel)]="tournament.premio" >
     </div>
     <div>
       <span>Ingrese la localidad: </span>
-      <input type="text" name="genero" placeholder="Genero" [(ngModel)]="tournament.localidad">
+      <input type="text" formControlName="localidad" placeholder="Localidad" [(ngModel)]="tournament.localidad">
     </div>
     <div>
       <span>Ingrese la fecha de inicio: </span>
-      <input type="number" name="calificacion" placeholder="Calificacion" [(ngModel)]="tournament.fecha">
+      <input type="number" formControlName="fecha" placeholder="Fecha de inicio" [(ngModel)]="tournament.fecha">
     </div>
     <div>
       <span>Ingrese la fecha de final: </span>
-      <input type="number" name="calificacion" placeholder="Calificacion" [(ngModel)]="tournament.fechaFin">
+      <input type="number" formControlName="fechaFin" placeholder="Fecha de finalización" [(ngModel)]="tournament.fechaFin">
     </div>
 
     <button type="submit">Guardar Cambios</button>

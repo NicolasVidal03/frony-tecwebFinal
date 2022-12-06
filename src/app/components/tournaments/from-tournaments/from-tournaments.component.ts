@@ -9,20 +9,14 @@ import {TournamentService} from "../../../services/tournament.service";
   styleUrls: ['./from-tournaments.component.scss']
 })
 export class FromTournamentsComponent {
-  tournament: Tournament={
-    nombreTour: "",
-    premio: 0,
-    localidad: "",
-    fecha: 0,
-    fechaFin: 0
-  };
-  constructor(private  tournamentService: TournamentService) {
+  tournament: any={};
+  constructor(private  tournamentService: TournamentService, private router: Router) {
   }
 
 
 
   agregarTournament() {
-    return this.tournamentService.addTournament(this.tournament).subscribe(res=>{console.log(res)}, err=>console.log(err))
+    return this.tournamentService.addTournament(this.tournament).subscribe(res=>{console.log(res); this.router.navigate(['/tournament'])}, err=>console.log(err))
   }
 
 }

@@ -7,7 +7,7 @@ import { ListGamesComponent } from './components/list-games/list-games.component
 import {HttpClientModule} from "@angular/common/http";
 import { MenuComponent } from './components/menu/menu.component';
 import { FormGameComponent } from './components/form-game/form-game.component';
-import {FormsModule} from "@angular/forms";
+import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SearchGameComponent } from './components/search-game/search-game.component';
 import { EditGameComponent } from './components/edit-game/edit-game.component';
 import { ListPlayersComponent } from './components/players/list-players/list-players.component';
@@ -16,6 +16,8 @@ import { FormPlayerComponent } from './components/players/form-player/form-playe
 import { ListTournamentsComponent } from './components/tournaments/list-tournaments/list-tournaments.component';
 import { EditTournamentsComponent } from './components/tournaments/edit-tournaments/edit-tournaments.component';
 import { FromTournamentsComponent } from './components/tournaments/from-tournaments/from-tournaments.component';
+import { ListPlayersgameComponent } from './components/players/list-playersgame/list-playersgame.component';
+import { ListTournamentsgameComponent } from './components/tournaments/list-tournamentsgame/list-tournamentsgame.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,16 @@ import { FromTournamentsComponent } from './components/tournaments/from-tourname
     FormPlayerComponent,
     ListTournamentsComponent,
     EditTournamentsComponent,
-    FromTournamentsComponent
+    FromTournamentsComponent,
+    ListPlayersgameComponent,
+    ListTournamentsgameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

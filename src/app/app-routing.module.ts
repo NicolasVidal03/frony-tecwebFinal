@@ -10,6 +10,10 @@ import {FormPlayerComponent} from "./components/players/form-player/form-player.
 import {ListTournamentsComponent} from "./components/tournaments/list-tournaments/list-tournaments.component";
 import {EditTournamentsComponent} from "./components/tournaments/edit-tournaments/edit-tournaments.component";
 import {FromTournamentsComponent} from "./components/tournaments/from-tournaments/from-tournaments.component";
+import {ListPlayersgameComponent} from "./components/players/list-playersgame/list-playersgame.component";
+import {
+  ListTournamentsgameComponent
+} from "./components/tournaments/list-tournamentsgame/list-tournamentsgame.component";
 
 const routes: Routes = [
   {path: "game", component: ListGamesComponent},
@@ -22,6 +26,8 @@ const routes: Routes = [
   {path: "tournament", component: ListTournamentsComponent},
   {path: "tournament/editar/:id", component: EditTournamentsComponent},
   {path: "tournament/agregar", component: FromTournamentsComponent},
+  {path: "game/player/:id", component: ListPlayersgameComponent},
+  {path: "game/tournament/:id", component: ListTournamentsgameComponent}
 ];
 
 @NgModule({

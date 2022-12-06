@@ -3,23 +3,27 @@
   <form (submit)="agregarTournament()">
     <div>
       <span>Ingrese el nombre del torneo: </span>
-      <input type="text" name="Nombre" placeholder="Titulo" [(ngModel)]="tournament.nombreTour">
+      <input type="text" name="nombreTour" placeholder="Nombre del torneo" [(ngModel)]="tournament.nombreTour">
     </div>
     <div>
       <span>Ingrese el premio: </span>
-      <input type="number" name="Premio" placeholder="Año de Lanzamiento" [(ngModel)]="tournament.premio" >
+      <input type="number" name="premio" placeholder="Premio" [(ngModel)]="tournament.premio" >
     </div>
     <div>
       <span>Ingrese la localidad: </span>
-      <input type="text" name="Localidad" placeholder="Genero" [(ngModel)]="tournament.localidad">
+      <input type="text" name="localidad" placeholder="Localidad" [(ngModel)]="tournament.localidad">
     </div>
     <div>
       <span>Ingrese la fecha de inicio: </span>
-      <input type="number" name="Fecha Inicio" placeholder="Calificacion" [(ngModel)]="tournament.fecha">
+      <input type="number" name="fecha" placeholder="Fecha de inicio" [(ngModel)]="tournament.fecha">
     </div>
     <div>
       <span>Ingrese la fecha de final: </span>
-      <input type="number" name="Fecha Fin" placeholder="Calificacion" [(ngModel)]="tournament.fechaFin">
+      <input type="number" name="fechaFin" placeholder="Fecha de finalización" [(ngModel)]="tournament.fechaFin">
+    </div>
+    <div>
+      <span>Ingrese el juego base: </span>
+      <input type="number" name="game" placeholder="Juego" [(ngModel)]="tournament.game">
     </div>
 
     <button type="submit">Guardar</button>

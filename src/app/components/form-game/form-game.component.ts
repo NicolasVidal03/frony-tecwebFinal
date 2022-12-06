@@ -19,14 +19,14 @@ export class FormGameComponent implements OnInit {
     calificacion: 0
   };
 
-  constructor(private gameService: GameService) {
+  constructor(private gameService: GameService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
   agregarGame() {
-    return this.gameService.addGame(this.game).subscribe(res=>{console.log(res)}, err=>console.log(err))
+    return this.gameService.addGame(this.game).subscribe(res=>{console.log(res); this.router.navigate(['/game'])}, err=>console.log(err))
   }
 
 

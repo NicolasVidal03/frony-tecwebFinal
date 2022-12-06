@@ -1,24 +1,25 @@
 
 <div class="principal">
-  <form (submit)="submitPlayer()">
+  <form [formGroup]="myForm" (submit)="submitPlayer()">
     <div>
       <span>Ingrese el nombre del jugador: </span>
-      <input type="text" name="titulo" placeholder="Nombre" [(ngModel)]="player.nombre">
+      <input type="text" formControlName="nombre" placeholder="Nombre" [(ngModel)]="player.nombre">
     </div>
     <div>
       <span>Ingrese la edad del jugador: </span>
-      <input type="number" name="lanzamiento" placeholder="Edad" [(ngModel)]="player.edad">
+      <input type="number" formControlName="edad" placeholder="Edad" [(ngModel)]="player.edad">
     </div>
     <div>
       <span>Ingrese el sueldo del jugador: </span>
-      <input type="number" name="genero" placeholder="Sueldo" [(ngModel)]="player.sueldo">
+      <input type="number" formControlName="sueldo" placeholder="Sueldo" [(ngModel)]="player.sueldo">
     </div>
-    <div>
-      <span>Ingrese el juego del jugador: </span>
-<!--      <select>-->
-<!--        <option *ngFor="let game of games" value="{{game.titulo}}" [(ngModel)]="player.game" [ngModelOptions]="{standalone: true}">{{game.titulo}}</option>-->
-<!--      </select>-->
-    </div>
+<!--    <div>-->
+<!--      <span>Ingrese el juego del jugador: </span>-->
+<!--      <input type="text" disabled value="{{player.game.titulo}}">-->
+<!--&lt;!&ndash;      <select >&ndash;&gt;-->
+<!--&lt;!&ndash;        <option *ngFor="let game of games"  >{{game.titulo}}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;      </select>&ndash;&gt;-->
+<!--    </div>-->
     <button type="submit" >Guardar Cambios</button>
   </form>
 </div>

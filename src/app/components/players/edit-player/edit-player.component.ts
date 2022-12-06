@@ -16,14 +16,14 @@ export class EditPlayerComponent implements OnInit{
   myForm: FormGroup;
   player: any= {}
   id: any = 0;
-  games: any=[];
 
-  constructor(private route: ActivatedRoute, private playerServices: PlayerService, private router: Router, private gameService: GameService) {
+
+  constructor(private route: ActivatedRoute, private playerServices: PlayerService, private router: Router) {
     this.myForm = new FormGroup({
       nombre: new FormControl('', Validators.required),
       edad: new FormControl('', Validators.required),
-      sueldo: new FormControl(''),
-      game: new FormControl('')
+      sueldo: new FormControl('')
+      //game: new FormControl('')
     })
   }
 
@@ -32,7 +32,7 @@ export class EditPlayerComponent implements OnInit{
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id");
     this.getPlayer();
-    this.gameService.getGames().subscribe(datos=>this.games=datos);
+    //this.gameService.getGames().subscribe(datos=>this.games=datos);
   }
 
   getPlayer() {
@@ -44,7 +44,7 @@ export class EditPlayerComponent implements OnInit{
 
   submitPlayer() {
     console.log(this.myForm.value)
-    this.playerServices.update(this.id, this.myForm.value).subscribe(res=> {
+    this.playerServices.update(this.id, this.myForm.value).subscribe(response=> {
       this.router.navigate(['/player'])
     })
   }

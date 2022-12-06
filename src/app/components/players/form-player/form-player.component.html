@@ -15,9 +15,10 @@
     </div>
     <div>
       <span>Ingrese el juego del jugador: </span>
-      <select>
-        <option *ngFor="let game of games" value="{{game.titulo}}"  [(ngModel)]="player.game" [ngModelOptions]="{standalone: true}">{{game.titulo}}</option>
-      </select>
+      <input type="number" name="game" placeholder="Juego" [(ngModel)]="player.game">
+<!--      <select>-->
+<!--        <option *ngFor="let game of games" value="{{game.titulo}}"  [(ngModel)]="player.game" [ngModelOptions]="{standalone: true}">{{game.titulo}}</option>-->
+<!--      </select>-->
     </div>
     <button>Guardar</button>
   </form>

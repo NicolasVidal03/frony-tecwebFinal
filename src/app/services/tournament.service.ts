@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Player} from "../interfaces/player.interface";
 import {Tournament} from "../interfaces/tournament.interface";
 import {Game} from "../interfaces/game.interface";
+import {FormGroup} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +29,8 @@ export class TournamentService {
     return this.http.delete(`server/tournaments/${id}`);
   }
 
-  update(id: string, tournament: Tournament): Observable<any> {
-    return this.http.patch(`server/tournaments/${id}`, tournament);
+  update(id: string, myForm: FormGroup): Observable<any> {
+    return this.http.patch(`server/tournaments/${id}`, myForm);
   }
 
   addTournament(tournament: Tournament): Observable<any> {
