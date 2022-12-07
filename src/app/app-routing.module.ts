@@ -14,20 +14,29 @@ import {ListPlayersgameComponent} from "./components/players/list-playersgame/li
 import {
   ListTournamentsgameComponent
 } from "./components/tournaments/list-tournamentsgame/list-tournamentsgame.component";
+import {HomeComponent} from "./home/home.component";
+import {LoginComponent} from "./auth/login.component";
+import {RegistroComponent} from "./auth/registro.component";
+import {LoginGuard} from "./guards/login.guard";
+import {GameGuard} from "./guards/game.guard";
 
 const routes: Routes = [
-  {path: "game", component: ListGamesComponent},
-  {path: "game/agregar", component: FormGameComponent},
-  {path: "game/buscar/:game", component: SearchGameComponent},
-  {path: "game/editar/:id", component: EditGameComponent},
-  {path: "player", component: ListPlayersComponent},
-  {path: "player/editar/:id", component: EditPlayerComponent},
-  {path: "player/agregar", component: FormPlayerComponent},
-  {path: "tournament", component: ListTournamentsComponent},
-  {path: "tournament/editar/:id", component: EditTournamentsComponent},
-  {path: "tournament/agregar", component: FromTournamentsComponent},
-  {path: "game/player/:id", component: ListPlayersgameComponent},
-  {path: "game/tournament/:id", component: ListTournamentsgameComponent}
+  {path: "", component: HomeComponent},
+  {path: "game", component: ListGamesComponent, canActivate: [GameGuard], data: {expectedRol: ['admin', 'user']}},
+  {path: "game/agregar", component: FormGameComponent, canActivate: [GameGuard], data: {expectedRol: ['admin']}},
+  {path: "game/buscar/:game", component: SearchGameComponent, canActivate: [GameGuard], data: {expectedRol: ['admin', 'user']}},
+  {path: "game/editar/:id", component: EditGameComponent, canActivate: [GameGuard], data: {expectedRol: ['admin']}},
+  {path: "player", component: ListPlayersComponent, canActivate: [GameGuard], data: {expectedRol: ['admin', 'user']}},
+  {path: "player/editar/:id", component: EditPlayerComponent, canActivate: [GameGuard], data: {expectedRol: ['admin']}},
+  {path: "player/agregar", component: FormPlayerComponent, canActivate: [GameGuard], data: {expectedRol: ['admin']}},
+  {path: "tournament", component: ListTournamentsComponent, canActivate: [GameGuard], data: {expectedRol: ['admin', 'user']}},
+  {path: "tournament/editar/:id", component: EditTournamentsComponent, canActivate: [GameGuard], data: {expectedRol: ['admin']}},
+  {path: "tournament/agregar", component: FromTournamentsComponent, canActivate: [GameGuard], data: {expectedRol: ['admin']}},
+  {path: "game/player/:id", component: ListPlayersgameComponent, canActivate: [GameGuard], data: {expectedRol: ['admin', 'user']}},
+  {path: "game/tournament/:id", component: ListTournamentsgameComponent, canActivate: [GameGuard], data: {expectedRol: ['admin', 'user']}},
+  {path: "login", component: LoginComponent, canActivate: [LoginGuard]},
+  {path: "registro", component: RegistroComponent, canActivate: [LoginGuard]},
+  {path: "**", redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

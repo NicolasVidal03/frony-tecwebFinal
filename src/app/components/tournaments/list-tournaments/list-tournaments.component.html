@@ -1,4 +1,4 @@
-<a class="nav-link route"  routerLink="/tournament/agregar">Agregar torneo</a>
+<a class="nav-link route" *ngIf="isAdmin" routerLink="/tournament/agregar">Agregar torneo</a>
 <div class="contenedor">
 
   <div class="juego" *ngFor="let tournament of tournaments">
@@ -10,8 +10,8 @@
     <h4>Fecha Inicio: {{tournament.fecha}}</h4>
     <h4>Fecha Fin: {{tournament.fechaFin}}</h4>
     <div class="botones">
-      <button class="bt1" type="button" (click)="deleteTournament(tournament.id)">Eliminar</button>
-      <button class="bt2" type="button" [routerLink]="['/tournament/editar/', tournament.id]">Editar</button>
+      <button class="bt1" type="button" *ngIf="isAdmin" (click)="deleteTournament(tournament.id)">Eliminar</button>
+      <button class="bt2" type="button" *ngIf="isAdmin" [routerLink]="['/tournament/editar/', tournament.id]">Editar</button>
     </div>
   </div>
 </div>

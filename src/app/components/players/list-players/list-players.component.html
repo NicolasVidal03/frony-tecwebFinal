@@ -1,12 +1,12 @@
-<a class="nav-link route"  routerLink="/player/agregar">Agregar jugador</a>
+<a class="nav-link route" *ngIf="isAdmin" routerLink="/player/agregar">Agregar jugador</a>
 <div class="contenedor">
   <div class="juego" *ngFor="let player of players">
     <h1>{{player.nombre}}</h1>
     <h2>Edad: {{player.edad}}</h2>
     <h2>Proplayer en {{player.game.titulo}}</h2>
     <div class="botones">
-      <button class="bt2" type="button" [routerLink]="['/player/editar/', player.id]">Editar</button>
-      <button class="bt1" type="button" (click)="deletePlayer(player.id)">Eliminar</button>
+      <button class="bt2" type="button" *ngIf="isAdmin" [routerLink]="['/player/editar/', player.id]">Editar</button>
+      <button class="bt1" type="button" *ngIf="isAdmin" (click)="deletePlayer(player.id)">Eliminar</button>
     </div>
   </div>
 </div>

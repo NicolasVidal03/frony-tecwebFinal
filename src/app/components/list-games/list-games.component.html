@@ -1,4 +1,4 @@
-<a class="nav-link route"  routerLink="/game/agregar">Agregar juego</a>
+<a class="nav-link route" *ngIf="isAdmin" routerLink="/game/agregar">Agregar juego</a>
 <div class="contenedor">
   <div class="juego" *ngFor="let game of games">
     <h1>{{game.titulo}}</h1>
@@ -7,8 +7,8 @@
     <h4>Calificacion: {{game.calificacion}}</h4>
 <!--    <h6 *ngFor="let player of game.players">{{player.nombre}}</h6>-->
     <div class="botones">
-      <button class="bt1" type="button" (click)="deleteGame(game.id)">Eliminar</button>
-      <button class="bt2" type="button" [routerLink]="['/game/editar/', game.id]">Editar</button>
+      <button class="bt1" type="button" *ngIf="isAdmin" (click)="deleteGame(game.id)">Eliminar</button>
+      <button class="bt2" type="button" *ngIf="isAdmin" [routerLink]="['/game/editar/', game.id]">Editar</button>
       <button class="bt2" type="button" [routerLink]="['/game/player/', game.id]">Mostrar Jugadores</button>
     </div>
   </div>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GameService} from "../../../services/game.service";
 import {PlayerService} from "../../../services/player.service";
+import {TokenService} from "../../../services/token.service";
 
 @Component({
   selector: 'app-list-players',
@@ -10,11 +11,15 @@ import {PlayerService} from "../../../services/player.service";
 export class ListPlayersComponent implements OnInit{
 
   public players: any=[];
+  isAdmin: boolean = false;
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService,
+              private tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {
     this.playerService.getPlayers().subscribe(datos=>this.players=datos);
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   deletePlayer(id: string): void {

@@ -18,6 +18,11 @@ import { EditTournamentsComponent } from './components/tournaments/edit-tourname
 import { FromTournamentsComponent } from './components/tournaments/from-tournaments/from-tournaments.component';
 import { ListPlayersgameComponent } from './components/players/list-playersgame/list-playersgame.component';
 import { ListTournamentsgameComponent } from './components/tournaments/list-tournamentsgame/list-tournamentsgame.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './auth/login.component';
+import { RegistroComponent } from './auth/registro.component';
+import {interceptorProvider} from "./interceptors/game.interceptor";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -34,16 +39,20 @@ import { ListTournamentsgameComponent } from './components/tournaments/list-tour
     EditTournamentsComponent,
     FromTournamentsComponent,
     ListPlayersgameComponent,
-    ListTournamentsgameComponent
+    ListTournamentsgameComponent,
+    HomeComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule/*,
+    ToastrModule.forRoot()*/
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
