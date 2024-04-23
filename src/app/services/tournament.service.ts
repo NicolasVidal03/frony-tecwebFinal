@@ -14,7 +14,7 @@ export class TournamentService {
   constructor(private http: HttpClient) { }
 
   getTournaments(): Observable<any> {
-    return this.http.get('server/tournaments')
+    return this.http.get('/server/tournaments')
   }
 
   /*getPlayersID(id: string): Observable<any> {

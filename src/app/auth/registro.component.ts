@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit{
   }
 
   onRegister(): void {
-    this.usuario = new NuevoUsuarioDto(this.nombre, this.nombreUsuario, this.email, this.password);
+    this.usuario = new NuevoUsuarioDto(this.nombre, this.email, this.nombreUsuario, this.password);
     console.log(this.usuario);
     /*
     this.authService.registro(this.usuario).subscribe(

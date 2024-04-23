@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       data => {
         console.log(data.token);
         if(!data.token)
-          console.log('error papi');
+          console.log('error, correo o contraseña incorrecto(s)');
         else {
           this.tokenService.setToken(data.token);
           this.router.navigate(['/']);

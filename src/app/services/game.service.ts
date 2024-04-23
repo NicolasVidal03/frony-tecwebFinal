@@ -16,7 +16,7 @@ export class GameService {
   }
 
   addGame(game: Game): Observable<any> {
-    return this.http.post('server/games', game);
+    return this.http.post('http://localhost:3000/games', game);
   }
 
   getOneGame(id: string): Observable<any> {
@@ -24,7 +24,7 @@ export class GameService {
   }
 
   delete(id: string): Observable<any> {
-    return this.http.delete(`server/games/${id}`);
+    return this.http.delete(`/server/games/${id}`);
   }
 
   update(id: string, myForm: FormGroup): Observable<any> {

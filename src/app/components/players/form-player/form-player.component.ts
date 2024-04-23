@@ -11,15 +11,11 @@ import {Router} from "@angular/router";
   styleUrls: ['./form-player.component.scss']
 })
 export class FormPlayerComponent implements OnInit{
-  /*player: Player={
-    nombre: "",
-    edad: 0,
-    sueldo: 0
-  };*/
+
   player: any={};
   //games: any=[];
 
-  constructor(private playerService: PlayerService, private router: Router) {
+  constructor(private playerService: PlayerService, private router: Router, private gameService: GameService) {
   }
 
   ngOnInit(): void {
